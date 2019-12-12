@@ -2,6 +2,9 @@ import express = require('express');
 import bodyParser = require("body-parser");
 import {PlaceRepository} from './repository/PlaceRepository'
 import { Place } from './common/Place';
+const port = process.env.PORT || 3000;
+
+
 
 var app = express();
 
@@ -21,7 +24,7 @@ app.get('/places', function (req, res) {
     res.send(JSON.stringify(places.getPlaces()))
 })
 
-app.post('/place' function (req: express.Request, res: express.Response) {
+app.post('/place', function (req: express.Request, res: express.Response) {
     var place: Place = <Place> req.body;
     var saved = places.addPlace(place);
     if (saved) {
@@ -29,5 +32,9 @@ app.post('/place' function (req: express.Request, res: express.Response) {
     } else {
       res.send({"failure": "O local nao pode ser cadastrado"});
     }
+})
+
+var server = app.listen(port, function () {
+  console.log('Example app listening on port ' + port + '!')
 })
   
