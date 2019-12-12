@@ -4,6 +4,11 @@ import {PlaceRepository} from './repository/PlaceRepository'
 import { Place } from './common/Place';
 const port = process.env.PORT || 3000;
 
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+});
 
 
 var app = express();
@@ -32,6 +37,20 @@ app.get('/generateDefault', function (req, res) {
   places.createDefaultPlaylistPlaceList();
   res.send(JSON.stringify("Default playlist list created with success."))
 })
+
+app.get('/db', async (req, res) => {
+  try {
+    const client = await pool.connect()
+    const result = await client.query('SELECT * FROM test_table');
+    const results = { 'results': (result) ? result.rows : null};
+    res.render('pages/db', results );
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+
 
 app.post('/place', function (req: express.Request, res: express.Response) {
     var place: Place = <Place> req.body;
