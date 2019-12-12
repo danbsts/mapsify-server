@@ -4,6 +4,7 @@ export class PlaceRepository {
     places: Place[] = [];
 
     addPlace(place: Place): boolean {
+        this.places.push(place);
         return true;
     }
 

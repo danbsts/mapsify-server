@@ -5,6 +5,7 @@ class PlaceRepository {
         this.places = [];
     }
     addPlace(place) {
+        this.places.push(place);
         return true;
     }
     getPlaces() {
