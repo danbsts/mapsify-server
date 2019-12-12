@@ -4,8 +4,17 @@ export class PlaceRepository {
     places: Place[] = [];
 
     addPlace(place: Place): boolean {
-        this.places.push(place);
-        return true;
+        var contain: boolean = false;
+        this.places.forEach(element => {
+            if (element.name == place.name) {
+                contain = true;
+                return;
+            }
+        });
+        if (!contain) {
+            this.places.push(place);
+        }
+        return contain;
     }
 
     getPlaces(): Place[] {
