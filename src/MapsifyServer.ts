@@ -26,6 +26,7 @@ app.get('/places', function (req, res) {
 
 app.post('/place', function (req: express.Request, res: express.Response) {
     var place: Place = <Place> req.body;
+    console.log(req.body);
     var saved = places.addPlace(place);
     if (saved) {
       res.send({"success": "O local foi cadastrado com sucesso"});
