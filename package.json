@@ -5,8 +5,8 @@
   "main": "MapsifyServer.js",
   "scripts": {
     "test": "jasmine --config=./spec/support/jasmine.json",
-    "tsc": "tsc",
-    "start": "npm run ./node_modules/typescript/bin/tsc && node ./typeScript/MapsifyServer.js"
+    "tsc": "./node_modules/typescript/bin/tsc",
+    "start": "./node_modules/typescript/bin/tsc && node ./typeScript/MapsifyServer.js"
   },
   "author": "Daniel Bastos",
   "license": "MIT",
