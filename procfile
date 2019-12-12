@@ -1,1 +1,1 @@
-web: npm install && npm run ./node_modules/typescript/bin/tsc && node ./typeScript/MapsifyServer.js
+web: npm run ./node_modules/typescript/bin/tsc && node ./typeScript/MapsifyServer.js
