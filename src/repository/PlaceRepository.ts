@@ -12,10 +12,10 @@ export class PlaceRepository {
                 return;
             }
         });
-        if (!contain) {
+        if (!contain && this.validatePlace(place)) {
             this.places.push(place);
         }
-        return contain;
+        return contain && this.validatePlace(place);
     }
 
     getPlaces(): Place[] {
@@ -31,4 +31,12 @@ export class PlaceRepository {
         return this.places;
     }
 
+    validatePlace(place: Place): boolean {
+        if(place.name != undefined && place.name != null && place.name != "" &&
+            place.lng != undefined && place.lng != null && place.lng != 0 &&
+            place.lat != undefined && place.lat != null && place.lat != 0 &&
+            place.playlistLink != undefined && place.playlistLink != null && place.playlistLink != "")
+            return true;
+        return false;
+    }
 }
