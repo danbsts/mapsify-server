@@ -21,4 +21,8 @@ export class PlaceRepository {
         return this.places;
     }
 
+    cleanPlaces() {
+        this.places = [];
+    }
+
 }
