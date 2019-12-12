@@ -1,4 +1,5 @@
 import {Place} from '../common/Place'
+import { PlaceRepositoryFixture } from '../fixture/PlaceRepositoryFixture';
 
 export class PlaceRepository {
     places: Place[] = [];
@@ -23,6 +24,11 @@ export class PlaceRepository {
 
     cleanPlaces() {
         this.places = [];
+    }
+
+    createDefaultPlaylistPlaceList() {
+        this.places = new PlaceRepositoryFixture().createDefaultPlaylistPlaceList();
+        return this.places;
     }
 
 }

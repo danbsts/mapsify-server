@@ -28,6 +28,10 @@ app.get('/clean', function (req, res) {
   res.send(JSON.stringify(places.cleanPlaces()))
 })
 
+app.get('/generateDefault', function (req, res) {
+  res.send(JSON.stringify(places.cleanPlaces()))
+})
+
 app.post('/place', function (req: express.Request, res: express.Response) {
     var place: Place = <Place> req.body;
     console.log(req.body);
