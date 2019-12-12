@@ -11,6 +11,3 @@ export class Place {
         this.playlistLink = playlistLink;
     }
 }
-
-
-//https://mapsifyserver.herokuapp.com/places

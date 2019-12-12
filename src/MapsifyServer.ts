@@ -29,7 +29,8 @@ app.get('/clean', function (req, res) {
 })
 
 app.get('/generateDefault', function (req, res) {
-  res.send(JSON.stringify(places.cleanPlaces()))
+  places.createDefaultPlaylistPlaceList();
+  res.send(JSON.stringify("Default playlist list created with success."))
 })
 
 app.post('/place', function (req: express.Request, res: express.Response) {
